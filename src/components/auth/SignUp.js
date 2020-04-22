@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const SignOut = () => {
+const SignUp = () => {
   const [state, setState] = useState({email: '', password: '', firstName: '', lastName: ''});
 
   const handleSubmit = (e) => {
@@ -40,4 +40,4 @@ const SignOut = () => {
   );
 };
 
-export default SignOut;
+export default SignUp;
