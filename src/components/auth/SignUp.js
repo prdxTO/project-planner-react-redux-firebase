@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const SignOut = () => {
-  const [state, setState] = useState({});
+  const [state, setState] = useState({email: '', password: '', firstName: '', lastName: ''});
 
   const handleSubmit = (e) => {
     e.preventDefault();
