@@ -1,38 +1,36 @@
 import React, { useState } from 'react';
 
 const SignOut = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [state, setState] = useState({});
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email);
-    console.log(password);
-    console.log(firstName);
-    console.log(lastName);
+    console.log(state);
+  };
+
+  const handleChange = (e) => {
+    setState({...state, [e.target.id]: e.target.value})
   };
 
   return (
     <div className="container">
       <form onSubmit={handleSubmit} className="white">
-        <h5 className="grey-text text-darken-3">Sign In</h5>
+        <h5 className="grey-text text-darken-3">Sign Up</h5>
         <div className="input-field">
           <label htmlFor="email">Email</label>
-          <input type="email" id="email" onChange={event => setEmail(event.target.value)}/>
+          <input type="email" id="email" onChange={handleChange}/>
         </div>
         <div className="input-field">
           <label htmlFor="password">Password</label>
-          <input type="password" id="password" onChange={event => setPassword(event.target.value)}/>
+          <input type="password" id="password" onChange={handleChange}/>
         </div>
         <div className="input-field">
           <label htmlFor="firstName">First Name</label>
-          <input type="text" id="firstName" onChange={event => setFirstName(event.target.value)}/>
+          <input type="text" id="firstName" onChange={handleChange}/>
         </div>
         <div className="input-field">
           <label htmlFor="lastName">Last Name</label>
-          <input type="text" id="lastName" onChange={event => setLastName(event.target.value)}/>
+          <input type="text" id="lastName" onChange={handleChange}/>
         </div>
         <div className="input-field">
           <button className="btn light-blue lighten-1 z-depth-0">Login</button>
