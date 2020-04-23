@@ -2,14 +2,13 @@ import React from 'react';
 import Notifications from "./Notifications";
 import ProjectList from "../projects/ProjectList";
 import { connect } from "react-redux";
-
-const mapStateToProps = (state) => {
-  return {
-    projects: state.project.projects
-  };
-};
+import { useFirestoreConnect } from "react-redux-firebase";
 
 const Dashboard = (props) => {
+  useFirestoreConnect([
+    { collection: 'projects' }
+  ]);
+
     return (
     <div className="dashboard container">
       <div className="row">
@@ -22,6 +21,12 @@ const Dashboard = (props) => {
       </div>
     </div>
   )
+};
+
+const mapStateToProps = (state) => {
+  return {
+    projects: state.firestore.ordered.projects
+  };
 };
 
 export default connect(mapStateToProps)(Dashboard);
