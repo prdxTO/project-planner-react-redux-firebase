@@ -34,6 +34,7 @@ const ProjectDetails = (props) => {
 };
 
 const mapStateToProps = (state, ownProps) => {
+  // Laziness and time constraint, need to refactor
   const id = ownProps.match.params.id;
   const projects = state.firestore.data.projects;
   const project = projects ? projects[id] : null;
